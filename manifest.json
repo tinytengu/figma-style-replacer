@@ -1,0 +1,10 @@
+{
+  "name": "Style Replacer",
+  "id": "1166447506149655199",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": [
+    "figma"
+  ],
+  "ui": "ui.html"
+}

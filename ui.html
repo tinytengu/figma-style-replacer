@@ -1,0 +1,64 @@
+<form action="#" onsubmit="handleForm">
+  <input id="oldInput" placeholder="Old style" required/>
+  <input id="newInput" placeholder="New style" required/>
+  <button id="replaceBtn">Replace</button>
+</form>
+
+<style>
+form {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+input {
+  padding: 8px;
+
+  border: 1px solid #93C5FD;
+  border-radius: 8px;
+}
+
+button {
+  cursor: pointer;
+
+  padding: 8px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #2563EB;
+  color: white;
+}
+
+button:hover {
+  background: #3B82F6;
+}
+
+button:active {
+  background: #2563EB;
+}
+</style>
+
+<script>
+document.getElementById('oldInput').focus();
+
+function handleForm(e) {
+  e.preventDefault();
+  
+}
+
+function runAction() {
+  const oldInput = document.getElementById('oldInput');
+  const newInput = document.getElementById('newInput');
+
+  if(oldInput.value.length === 0 || newInput.value.length === 0) {
+    return;
+  }
+
+  parent.postMessage({ pluginMessage: { type: 'replace-styles', 'old': oldInput.value, 'new': newInput.value } }, '*')
+}
+
+document.getElementById('replaceBtn').onclick = () => {
+  runAction();
+}
+</script>
